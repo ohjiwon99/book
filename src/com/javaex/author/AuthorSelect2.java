@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class AuthorSelect2 {
@@ -57,6 +58,14 @@ public class AuthorSelect2 {
 			// 4.결과처리
 			System.out.println(authorList.toString());
 			// 리스트 이용해서 출력
+
+			for (int i = 0; i < authorList.size(); i++) {
+				int no = authorList.get(i).getAuthorid();
+				String name = authorList.get(i).getAuthorname();
+				String desc = authorList.get(i).getAuthordesc();
+
+				System.out.println(no + "\t" + name + "\t" + desc);
+			}
 
 		} catch (ClassNotFoundException e) {
 			System.out.println("error: 드라이버 로딩 실패 - " + e);
